@@ -7,11 +7,15 @@ import re
 import sys
 
 # Complete the andProduct function below.
+def nextpowerof2(x):
+    i = 1
+    while(i < x):
+        i *= 2
+    return i
+
 def andProduct(a, b):
     result = a
-    for i in range(a+1,b+1):
-        result = result & i
-    return result
+    return a & ~(nextpowerof2(a^b)-1)
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
